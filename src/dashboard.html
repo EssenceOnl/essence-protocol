@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dashboard — Essence</title>
+<meta name="description" content="Live Robinhood Chain data: block, gas, TVL, recent blocks, pairs and a read-only wallet check.">
+<meta property="og:title" content="Essence Dashboard">
+<meta property="og:image" content="https://essence.onl/slide-hero.jpg">
+<meta name="theme-color" content="#edf1e4">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" href="favicon-32.png" sizes="32x32">
+<link rel="manifest" href="site.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="palette.css">
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body data-page="dashboard">
+<!--#include header-->
+
+<main id="main">
+<div class="wrap pagehead rv">
+  <div><span class="eyebrow">Live · on-chain</span><h1>Dashboard</h1></div>
+  <span class="pill" id="status"><span class="dot"></span><span id="status-txt">Connecting</span></span>
+</div>
+
+<section id="live" class="pad tight">
+  <div class="wrap">
+    <div class="sh rv"><div class="sh-row"><h2>The chain</h2><span class="lbl tnum">updated <span id="upd">—</span></span></div></div>
+    <div class="tiles rv">
+      <div class="tile"><span class="k">Block height</span><div class="v tnum" data-bind="block">—</div><div class="s">latest sealed</div></div>
+      <div class="tile"><span class="k">Gas price</span><div class="v tnum" data-bind="gas">—</div><div class="s">gwei</div></div>
+      <div class="tile"><span class="k">Block time</span><div class="v tnum" data-bind="btime">—</div><div class="s">avg last 8 blocks</div></div>
+      <div class="tile"><span class="k">Txs · latest</span><div class="v tnum" data-bind="tx">—</div><div class="s">in newest block</div></div>
+      <div class="tile"><span class="k">Chain TVL</span><div class="v tnum" data-bind="tvl">—</div><div class="s">DefiLlama</div></div>
+      <div class="tile"><span class="k">TVL · 30d</span><div class="v tnum" data-bind="tvlchg">—</div><div class="s">change</div></div>
+    </div>
+    <div class="panel rv">
+      <div class="panel-h"><span class="lbl">TVL · last 90 days</span><span class="lbl tnum" id="chart-read">—</span></div>
+      <div class="chart" id="chart"><svg viewBox="0 0 600 140" preserveAspectRatio="none" role="img" aria-label="Chain TVL, last 90 days">
+        <defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--accent);stop-opacity:.28"/><stop offset="1" style="stop-color:var(--accent);stop-opacity:0"/></linearGradient></defs>
+        <path id="ch-area" fill="url(#ag)" d=""/><path id="ch-line" pathLength="1" fill="none" stroke="var(--accent)" stroke-width="1.8" vector-effect="non-scaling-stroke" d="M0 70L600 70"/><line id="ch-x" y1="0" y2="140" stroke="var(--muted)" stroke-width="1" vector-effect="non-scaling-stroke" opacity="0"/></svg>
+        <div class="tip" id="tip"></div></div>
+    </div>
+    <div class="panel rv">
+      <div class="panel-h"><span class="lbl">Last 8 blocks · transactions</span><span class="lbl">newest on the right</span></div>
+      <div class="blocks" id="blocks"></div>
+    </div>
+  </div>
+</section>
+
+<section id="pairs" class="pad tight">
+  <div class="wrap">
+    <div class="sh rv"><div class="sh-row"><h2>Pairs</h2><span class="pill soft"><span class="dot"></span>DexScreener</span></div></div>
+    <div class="table rv" id="pairs-table" role="table" aria-label="Robinhood Chain pairs">
+      <div class="tr th" role="row"><span>Pair</span><span>DEX</span><span class="r">Price</span><span class="r">24h</span><span class="r">Liquidity</span><span class="r">Volume 24h</span></div>
+      <div id="pairs-body"><div class="sk"></div><div class="sk"></div><div class="sk"></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="wallet" class="pad tight">
+  <div class="wrap">
+    <div class="sh rv"><div class="sh-row"><h2>Check a wallet</h2><span class="pill soft"><span class="dot"></span>read-only</span></div><p>Paste any address to read its balance and activity on Robinhood Chain. Nothing is connected or signed.</p></div>
+    <div class="check rv">
+      <form class="in" id="w-form" autocomplete="off"><input id="w-addr" spellcheck="false" autocomplete="off" inputmode="text" aria-label="Wallet address" placeholder="0x… any address"><button id="w-go" type="submit">Check</button></form>
+      <div class="out">
+        <div class="co"><span class="k">ETH balance</span><div class="v tnum" id="w-bal">—</div></div>
+        <div class="co"><span class="k">Txs sent</span><div class="v tnum" id="w-nonce">—</div></div>
+        <div class="co"><span class="k">Account type</span><div class="v" id="w-kind">—</div></div>
+      </div>
+    </div>
+    <p class="sec-sub" id="w-note">Reads directly from the public RPC.</p>
+  </div>
+</section>
+
+<section id="fleet" class="pad tight">
+  <div class="wrap">
+    <div class="sh rv"><div class="sh-row"><h2>The workforce</h2><span class="pill soft"><span class="dot"></span>not live yet</span></div></div>
+    <div class="gate off rv">
+      <div class="gate-msg"><span>Activates once the contract is stated.</span></div>
+      <div class="gate-inner">
+        <div class="tiles">
+          <div class="tile"><span class="k">Agents</span><div class="v tnum">—</div><div class="s">in the network</div></div>
+          <div class="tile"><span class="k">Fees generated</span><div class="v tnum">—</div><div class="s">by agent activity</div></div>
+          <div class="tile"><span class="k">Distributed</span><div class="v tnum">—</div><div class="s">across the network</div></div>
+        </div>
+      </div>
+    </div>
+    <p class="note">Read-only. Chain figures come from the public Robinhood Chain RPC, TVL from DefiLlama and pairs from DexScreener. Nothing on this page can move funds.</p>
+  </div>
+</section>
+</main>
+
+<!--#include footer-->
+<script type="module" src="main.js"></script>
+</body>
+</html>

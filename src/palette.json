@@ -1,0 +1,168 @@
+{
+  "method": "k-means (k=10, deterministic farthest-point init, 30 iters) over pooled opaque pixels of the real assets; every token snapped to the nearest real pixel; file + x,y recorded",
+  "sources": [
+    "brand/LOGO ESSENCE PNG...png",
+    "reference/ESSENCE 1.jpg.jpeg",
+    "reference/SAMPUL ESSENCE JPG.jpg.jpeg"
+  ],
+  "clusters": [
+    {
+      "hex": "#edf0e3",
+      "share": 0.6999
+    },
+    {
+      "hex": "#336442",
+      "share": 0.0928
+    },
+    {
+      "hex": "#1f5d39",
+      "share": 0.0444
+    },
+    {
+      "hex": "#d9e5d1",
+      "share": 0.035
+    },
+    {
+      "hex": "#afc6af",
+      "share": 0.0289
+    },
+    {
+      "hex": "#c5d6c1",
+      "share": 0.0289
+    },
+    {
+      "hex": "#19492a",
+      "share": 0.0285
+    },
+    {
+      "hex": "#4c7958",
+      "share": 0.0169
+    },
+    {
+      "hex": "#679071",
+      "share": 0.0131
+    },
+    {
+      "hex": "#8aac90",
+      "share": 0.0116
+    }
+  ],
+  "colors": [
+    {
+      "role": "bg",
+      "hex": "#edf1e4",
+      "file": "reference/ESSENCE 1.jpg.jpeg",
+      "x": 1466,
+      "y": 48,
+      "contrast_on_bg": 1
+    },
+    {
+      "role": "surface-2",
+      "hex": "#e1ead9",
+      "file": "reference/ESSENCE 1.jpg.jpeg",
+      "x": 1116,
+      "y": 42,
+      "contrast_on_bg": 1.08
+    },
+    {
+      "role": "hover",
+      "hex": "#d7e2d0",
+      "file": "reference/ESSENCE 1.jpg.jpeg",
+      "x": 1490,
+      "y": 43,
+      "contrast_on_bg": 1.17
+    },
+    {
+      "role": "soft",
+      "hex": "#c5d6c0",
+      "file": "reference/ESSENCE 1.jpg.jpeg",
+      "x": 1520,
+      "y": 48,
+      "contrast_on_bg": 1.33
+    },
+    {
+      "role": "tint",
+      "hex": "#afc7af",
+      "file": "reference/ESSENCE 1.jpg.jpeg",
+      "x": 149,
+      "y": 70,
+      "contrast_on_bg": 1.58
+    },
+    {
+      "role": "faint",
+      "hex": "#8bab90",
+      "file": "reference/ESSENCE 1.jpg.jpeg",
+      "x": 698,
+      "y": 645,
+      "contrast_on_bg": 2.2
+    },
+    {
+      "role": "mid",
+      "hex": "#679071",
+      "file": "reference/ESSENCE 1.jpg.jpeg",
+      "x": 1522,
+      "y": 341,
+      "contrast_on_bg": 3.15
+    },
+    {
+      "role": "muted",
+      "hex": "#446a4f",
+      "file": "reference/ESSENCE 1.jpg.jpeg",
+      "x": 937,
+      "y": 352,
+      "contrast_on_bg": 5.35
+    },
+    {
+      "role": "brand",
+      "hex": "#356442",
+      "file": "brand/LOGO ESSENCE PNG...png",
+      "x": 1040,
+      "y": 530,
+      "contrast_on_bg": 6
+    },
+    {
+      "role": "accent",
+      "hex": "#1f5d38",
+      "file": "reference/SAMPUL ESSENCE JPG.jpg.jpeg",
+      "x": 1275,
+      "y": 73,
+      "contrast_on_bg": 6.83
+    },
+    {
+      "role": "ink",
+      "hex": "#1a4929",
+      "file": "reference/ESSENCE 1.jpg.jpeg",
+      "x": 192,
+      "y": 47,
+      "contrast_on_bg": 9.02
+    }
+  ],
+  "report": {
+    "brand/LOGO ESSENCE PNG...png": {
+      "width": 2000,
+      "height": 2000,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alpha": {
+        "transparent": 3609361,
+        "transparentPureBlack": 3609361,
+        "partial": 22096,
+        "opaque": 368543
+      },
+      "premultipliedResize": true
+    },
+    "brand/LOGO ESSENCE PNG.png": {
+      "width": 2000,
+      "height": 2000,
+      "bitDepth": 8,
+      "colorType": 6,
+      "alpha": {
+        "transparent": 0,
+        "transparentPureBlack": 0,
+        "partial": 14,
+        "opaque": 3999986
+      },
+      "premultipliedResize": false
+    }
+  }
+}
